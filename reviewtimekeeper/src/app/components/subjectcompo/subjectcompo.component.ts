@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentRef, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-subjectcompo',
@@ -6,14 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subjectcompo.component.scss']
 })
 export class SubjectcompoComponent implements OnInit {
+ 
 
   public title:string = "";
   public who:string = "";
   public order:number = 0;
-  public timer:number = 0;
+  public timeLeft:number = 60;
 
-  timeLeft: number = 60;
   interval;
+  public containTarget: ViewContainerRef;
 
   constructor() {
    }
@@ -34,5 +35,14 @@ export class SubjectcompoComponent implements OnInit {
   pauseTimer() {
     clearInterval(this.interval);
   }
+
+  deleteItem() {
+    
+    this.containTarget.remove();
+
+  }
+
+  
+  
 
 }

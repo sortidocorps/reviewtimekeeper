@@ -1,5 +1,5 @@
 <form class="rev-form">
-    
+
     <!-- ORDER -->
     <mat-form-field class="rev-full-width">
         <mat-label>Order</mat-label>
@@ -21,7 +21,7 @@
     <!-- TIME -->
     <mat-form-field class="rev-full-width">
         <mat-label>Time (in second)</mat-label>
-        <input matInput type="text" [(ngModel)]="timer" name="timer">
+        <input matInput type="text" [(ngModel)]="timeLeft" name="timeLeft">
     </mat-form-field>
 
     <!-- BUTTONS -->
@@ -30,5 +30,8 @@
 
     <!-- TIMELEFT -->
     <p>{{timeLeft}} Left....</p>
+        <button mat-icon-button color="warn" (click)="deleteItem()" matTooltip="Delete this flow line">
+            <mat-icon aria-label="Delete">delete_forever</mat-icon>
+        </button>
 
 </form>
