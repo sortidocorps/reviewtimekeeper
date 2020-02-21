@@ -1,4 +1,6 @@
 import { Component, OnInit, ComponentRef, ViewContainerRef } from '@angular/core';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-subjectcompo',
@@ -14,7 +16,8 @@ export class SubjectcompoComponent implements OnInit {
   public timeLeft:number = 60;
 
   interval;
-  public containTarget: ViewContainerRef;
+
+  isDel:boolean = false;
 
   constructor() {
    }
@@ -36,10 +39,15 @@ export class SubjectcompoComponent implements OnInit {
     clearInterval(this.interval);
   }
 
+
   deleteItem() {
     
-    this.containTarget.remove();
+    this.isDel = true;
 
+  }
+
+  isDelete(){
+    return this.isDel;
   }
 
   
