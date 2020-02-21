@@ -1,0 +1,34 @@
+<form class="rev-form">
+    
+    <!-- ORDER -->
+    <mat-form-field class="rev-full-width">
+        <mat-label>Order</mat-label>
+        <input matInput type="text" [(ngModel)]="order" name="order">
+    </mat-form-field>
+
+    <!-- TITLE -->
+    <mat-form-field class="rev-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" [(ngModel)]="title" name="title">
+    </mat-form-field>
+
+    <!-- WHO -->
+    <mat-form-field class="rev-full-width">
+        <mat-label>Who</mat-label>
+        <input matInput type="text" [(ngModel)]="who" name="who">
+    </mat-form-field>
+
+    <!-- TIME -->
+    <mat-form-field class="rev-full-width">
+        <mat-label>Time (in second)</mat-label>
+        <input matInput type="text" [(ngModel)]="timer" name="timer">
+    </mat-form-field>
+
+    <!-- BUTTONS -->
+    <button mat-raised-button (click)='startTimer()'>Start</button>
+    <button mat-raised-button (click)='pauseTimer()'>Pause</button>
+
+    <!-- TIMELEFT -->
+    <p>{{timeLeft}} Left....</p>
+
+</form>

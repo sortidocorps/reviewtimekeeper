@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-blue);
+$my-app-accent: mat-palette($mat-green, 300);
+
+// The warn palette is optional (defaults to red).
+$my-app-warn: mat-palette($mat-deep-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-app-theme);
+$theme: $my-app-theme;
+
+.default-theme {
+  @include angular-material-theme($my-app-theme);
+  $theme: $my-app-theme;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* for sidenav to take a whole page */
+.section {
+  height: 100vh;
+}
+.section—first {
+  height: 90vh;
+}
+
+md-icon {
+  font-family: "Material Icons" !important;
+}

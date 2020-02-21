@@ -1,0 +1,41 @@
+a {
+  text-decoration: none;
+  color: white;
+  &:hover,
+  &:active {
+    color: lightgray;
+  }
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
+
+.links {
+  color: #b51606;
+}
+
+.links:hover {
+  color: grey;
+}
+
+
+.angular {
+  background-image: url("/assets/angular.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 50%;
+  height: 50%;
+  padding: 0 0 0 84px;
+}
+
+.duck {
+  background-image: url("/assets/duck.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 50%;
+  height: 50%;
+  padding: 0px 0 0 217px;
+}
+

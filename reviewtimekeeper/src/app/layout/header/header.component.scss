@@ -1,0 +1,41 @@
+//.fill-remaining-space {
+//  /* This fills the remaining space, by using flexbox.
+//     Every toolbar row uses a flexbox row layout. */
+//  flex: 1 1 auto;
+//}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    &:hover, &:active {
+      color: lightgray;
+    }
+  }
+  
+  .navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  mat-toolbar {
+    border-radius: 3px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  #logout {
+    margin: 0 14px;
+  }
+
+  .icon {
+    vertical-align: text-bottom;
+  }  
+
+  @media (max-width: 959px) {
+    mat-toolbar {
+      border-radius: 0px;
+    }
+  }
