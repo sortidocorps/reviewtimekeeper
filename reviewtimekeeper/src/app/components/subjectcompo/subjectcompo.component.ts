@@ -14,6 +14,7 @@ export class SubjectcompoComponent implements OnInit {
   public who:string = "";
   public order:number = 0;
   public timeLeft:number = 60;
+  public timeStarted:number;
 
   interval;
 
@@ -25,13 +26,18 @@ export class SubjectcompoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  startTimer() {
+  startTimer() {    
+    this.timeStarted = this.timeLeft;
+    console.log("this.timeStarted ",this.timeStarted);
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
         this.timeLeft = 60;
       }
+      this.lastButNotLeast(25);
+      this.lastButNotLeast(5);
+
     },1000)
   }
 
@@ -48,6 +54,17 @@ export class SubjectcompoComponent implements OnInit {
 
   isDelete(){
     return this.isDel;
+  }
+
+  lastButNotLeast(percent: number) {
+    
+    let time25 = Math.round(this.timeStarted*percent) / 100;
+    console.log(time25);
+    if (this.timeLeft == time25) {
+      console.log("YEAHHHHHHHHHH ", time25);
+    }
+
+
   }
 
   
