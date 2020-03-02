@@ -1,4 +1,4 @@
-<form class="rev-form" *ngIf="!isDelete();">
+<form [ngClass]="colorForms" *ngIf="!isDelete();">
 
     <!-- ORDER -->
     <mat-form-field class="rev-full-width">
@@ -26,12 +26,10 @@
 
     <!-- BUTTONS -->
     <button mat-raised-button (click)='startTimer()'>Start</button>
-    <button mat-raised-button (click)='pauseTimer()'>Pause</button>
 
     <!-- TIMELEFT -->
-    <p>{{timeLeft}} Left....</p>
-        <button mat-icon-button color="warn" (click)="deleteItem()" matTooltip="Delete this flow line">
-            <mat-icon aria-label="Delete">delete_forever</mat-icon>
-        </button>
+    <button mat-icon-button color="warn" (click)="deleteItem()" matTooltip="Delete this flow line">
+        <mat-icon aria-label="Delete">delete_forever</mat-icon>
+    </button>
 
 </form>

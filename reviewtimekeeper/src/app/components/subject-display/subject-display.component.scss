@@ -1,3 +1,45 @@
-.colorBg {
- background-color: green($color: #000000);
+
+.error {
+    background: rgba(253, 13, 33, 0.8);
+    text-align: center;
 }
+  
+.warning {
+    background: rgba(255, 87, 34, 0.8);
+    text-align: center;
+}
+  
+.good {
+    background: rgba(76, 175, 80, 0.8);
+    text-align: center;
+}
+
+.lasttime-size {
+    color: white;
+    /* 323.857px */
+    font-size: 294.857px;
+    font-weight: bold;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+}
+
+.title-view {
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+}
+
+.who-view {
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+}
+
+.space-view {
+    color: white;
+    font-size: x-large;
+    text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+}
+
+
