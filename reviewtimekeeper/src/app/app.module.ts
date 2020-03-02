@@ -16,6 +16,7 @@ import { TimertestComponent } from './shared/timertest/timertest.component';
 import { SubjectcompoComponent } from './components/subjectcompo/subjectcompo.component';
 import { MatCardModule } from '@angular/material/card';
 import { SubjectDisplayComponent } from './components/subject-display/subject-display.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SubjectDisplayComponent } from './components/subject-display/subject-di
     TimertestComponent,
     SubjectcompoComponent,
     SubjectDisplayComponent,
+    TimerComponent,
     
   ],
   imports: [

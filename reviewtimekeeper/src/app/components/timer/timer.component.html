@@ -1,0 +1,18 @@
+<mat-card [ngClass]="colorBg">
+
+    <mat-card-content>
+
+        <h1>
+            <span class="label label-primary">{{_timer.minutes}}</span> minutes
+            <span class="label label-primary">{{_timer.secondes}}</span> secondes
+        </h1>
+
+
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button *ngIf="_state.backward" (click)="backward()">Erase</button>
+        <button mat-raised-button *ngIf="_state.stop" (click)="stop()">Stop</button>
+        <button mat-raised-button *ngIf="_state.play" (click)="play()">{{_btnPlay}}</button>
+    </mat-card-actions>
+</mat-card>
