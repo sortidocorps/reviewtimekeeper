@@ -1,5 +1,7 @@
 import { Component, OnInit, ComponentRef, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { SubjectDisplayComponent } from '../subject-display/subject-display.component';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class SubjectcompoComponent implements OnInit {
   time25:number;
   time5:number;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
    }
 
   ngOnInit(): void {
@@ -38,6 +40,15 @@ export class SubjectcompoComponent implements OnInit {
     percent = 5;
     this.time5 = Math.round(this.timeStarted*percent) / 100;
     console.log(this.time5);
+
+
+    const dial = this.dialog.open(SubjectDisplayComponent, {
+      data: {
+        title: "IDF ",
+        idfIndus: "element.idfIndus",
+        idfProd: "element.idfProd"
+      }
+    });
 
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
