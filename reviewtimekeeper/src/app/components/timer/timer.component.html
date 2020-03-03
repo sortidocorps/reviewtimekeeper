@@ -1,18 +1,33 @@
-<mat-card [ngClass]="colorBg">
-
-    <mat-card-content>
-
+<!--  <div class="container">
+    <div class="text-center">
+        <hr>
         <h1>
-            <span class="label label-primary">{{_timer.minutes}}</span> minutes
-            <span class="label label-primary">{{_timer.secondes}}</span> secondes
+            <span class="label label-primary">{{timer.minutes}}</span> minutes
+            <span class="label label-primary">{{timer.secondes}}</span> secondes
         </h1>
+        <br>
+        <p>
+            <button class="btn btn-danger btn-lg" *ngIf="state.backward" (click)="backward()">Effacer</button>
+            <button class="btn btn-danger btn-lg" *ngIf="state.stop" (click)="stop()">Arrêter</button>
+            <button class="btn btn-primary btn-lg" *ngIf="state.play" (click)="play()">{{btnPlay}}</button>
+        </p>
+    </div> -->
+
+<mat-card>
+
+        <mat-card-content>
+
+            <h1>
+                <span>{{timer.minutes}}</span> minutes
+                <span>{{timer.secondes}}</span> seconds
+            </h1>
 
 
-    </mat-card-content>
+        </mat-card-content>
 
-    <mat-card-actions>
-        <button mat-raised-button *ngIf="_state.backward" (click)="backward()">Erase</button>
-        <button mat-raised-button *ngIf="_state.stop" (click)="stop()">Stop</button>
-        <button mat-raised-button *ngIf="_state.play" (click)="play()">{{_btnPlay}}</button>
-    </mat-card-actions>
-</mat-card>
+        <mat-card-actions>
+            <button color="primary" mat-raised-button *ngIf="state.backward" (click)="backward()">erase</button>
+            <button color="primary" mat-raised-button *ngIf="state.stop" (click)="stop()">stop</button>
+            <button color="warn" mat-raised-button *ngIf="state.play" (click)="play()">{{btnPlay}}</button>
+        </mat-card-actions>
+    </mat-card>

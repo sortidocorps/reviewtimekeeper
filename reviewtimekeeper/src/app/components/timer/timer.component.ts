@@ -9,9 +9,9 @@ import { TimerState } from 'src/app/shared/timerState';
 })
 export class TimerComponent implements OnInit {
 
-  private _btnPlay: string = 'Start Review';
-  private _timer: Timer = new Timer();
-  private _state: TimerState = new TimerState();
+  btnPlay: string = 'Start Review';
+  timer: Timer = new Timer();
+  state: TimerState = new TimerState();
 
 
 
@@ -21,20 +21,20 @@ export class TimerComponent implements OnInit {
   }
 
   play() {
-    this._timer.start();
-    this._state.setPlay();
-    this._btnPlay = 'Continue';
+    this.timer.start();
+    this.state.setPlay();
+    this.btnPlay = 'Continue';
   }
   
   stop() {
-    this._timer.stop();
-    this._state.setStop();
+    this.timer.stop();
+    this.state.setStop();
   }
 
   backward() {
-    this._timer.reset();
-    this._state.setBackward();
-    this._btnPlay = 'Start Review';
+    this.timer.reset();
+    this.state.setBackward();
+    this.btnPlay = 'Start Review';
   }
 
 }

@@ -1,25 +1,18 @@
-<div>
-    <mat-card [ngClass]="colorBg">
-        <mat-card-header>
-            <mat-card-title class="title-view">{{data.title}}</mat-card-title>
-            <!-- <mat-card-subtitle class="who-view">{{data.who}}</mat-card-subtitle> -->
-        </mat-card-header>
+<div class="display-timer">
+    <div [ngClass]="colorBg">
 
-        <mat-card-content [ngClass]="colorBg">
+        <div class="container">
+            <p class="title-view">{{data.title}}</p>
 
-            <!-- <mat-form-field> -->
-            <div>
-                <p class="who-view">{{data.who}}</p>
-                <p class="lasttime-size">00:{{timeLeft}}</p>
+            <p class="who-view">{{data.who}}</p>
+
+            <div class="lasttime-size">00:{{timeLeft}}</div>
+
+            <div class="space-view">
+                <p (keydown.backspace)="pauseTimer()">Hit SPACE to PAUSE</p>
+                <button mat-raised-button (click)='closeDial()'>CLOSE</button>
             </div>
+        </div>
 
-
-        </mat-card-content>
-
-        <mat-card-actions>
-            <p class="space-view" (keydown.backspace)="pauseTimer()">Hit SPACE to PAUSE</p>
-            <button mat-raised-button (click)='closeDial()'>CLOSE</button>
-            <!-- <input [(ngModel)]="input" (keydown.backspace)="pauseTimer()"> -->
-        </mat-card-actions>
-    </mat-card>
+    </div>
 </div>

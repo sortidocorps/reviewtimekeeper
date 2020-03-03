@@ -2,24 +2,28 @@
 .error {
     background: rgba(253, 13, 33, 0.8);
     text-align: center;
+    height: 100%;
 }
   
 .warning {
     background: rgba(255, 87, 34, 0.8);
     text-align: center;
+    height: 100%;
 }
   
 .good {
     background: rgba(76, 175, 80, 0.8);
     text-align: center;
+    height: 100%;
 }
 
 .lasttime-size {
     color: white;
     /* 323.857px */
-    font-size: 294.857px;
+    font-size: 294.857px;    
     font-weight: bold;
     text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+    padding-top: 57px;
 }
 
 .title-view {
@@ -40,6 +44,26 @@
     color: white;
     font-size: x-large;
     text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+    padding-top: 57px;
 }
 
+.display-timer {
+    height: 100%;
+}
+
+.display-chiffre {
+    height: 100%;
+}
+
+
+.container {
+    align-items: stretch;
+    display: flex;
+    flex-flow: column wrap;
+  
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+
+    height: 100%;
+}
 

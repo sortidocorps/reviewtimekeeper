@@ -36,13 +36,12 @@ export class SubjectcompoComponent implements OnInit {
   startTimer() {
 
     const dial = this.dialog.open(SubjectDisplayComponent, {
-      /* position: {
-        top: '25px', */
+      position: {
+        top: '25px',
         /* right: '10px' */
-      /* }, */
+      },
       disableClose: true,
       maxWidth: '100vw',
-      maxHeight: '100vh',
       height: '100%',
       width: '100%',
       panelClass: 'myapp-no-padding-dialog',
