@@ -18,6 +18,9 @@ export class SubjectDisplayComponent implements OnInit {
   colorBg: string;
   isPaused: boolean;
 
+  secondRest:number;
+  minuteRest:number;
+
   constructor(public dialogRef: MatDialogRef<SubjectcompoComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.timeLeft = this.data.timeLeft;
     this.isPaused = false;
@@ -39,9 +42,37 @@ export class SubjectDisplayComponent implements OnInit {
 
     console.log("time25 ", this.time25);
     console.log("time5 ", this.time5);
+
+    this.minuteRest = parseInt("" +this.timeStarted / 60);
+    this.secondRest = this.timeStarted % 60;
+    console.log("time minute ", this.minuteRest);
+    console.log("time second ", this.secondRest); 
+  }
+  
+  startTimer() {
+    this.isPaused = false;
+    this.interval = setInterval(() => {
+      if (this.secondRest > 0) {
+        this.secondRest--;
+      } else if(this.minuteRest > 0 && this.secondRest == 0) {
+        this.minuteRest--;
+        let secondTotal = this.minuteRest * 60;
+        secondTotal = + 59;
+        //this.minuteRest = parseInt("" +secondTotal / 60);
+        this.secondRest = secondTotal % 60;  
+        console.log("time  ", secondTotal, this.minuteRest, this.secondRest); 
+       // this.minuteRest--;
+      } else {
+        clearInterval(this.interval);
+        this.closerPopup();
+      }
+      this.lastButNotLeast();
+
+    }, 1000)
+
   }
 
-  startTimer() {
+  /* startTimer() {
     this.isPaused = false;
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
@@ -54,8 +85,7 @@ export class SubjectDisplayComponent implements OnInit {
 
     }, 1000)
 
-
-  }
+  } */
 
   closerPopup() {
     if (this.timeLeft <= 0) {
