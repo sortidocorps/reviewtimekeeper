@@ -12,6 +12,10 @@ export class SubjectDisplayComponent implements OnInit {
 
   time25: number;
   time5: number;
+  minute25: number;
+  minute5: number;
+  second25: number;
+  second5: number;
   interval;
   timeStarted: number;
   timeLeft: number;
@@ -36,15 +40,19 @@ export class SubjectDisplayComponent implements OnInit {
 
     let percent = 25;
     this.time25 = parseInt("" + Math.round(this.timeStarted * percent) / 100);
+    this.minute25 = this.getMinutes(this.time25);
+    this.second25 = this.getSecond(this.time25);
 
     percent = 5;
     this.time5 = parseInt("" + Math.round(this.timeStarted * percent) / 100);
+    this.minute5 = this.getMinutes(this.time5);
+    this.second5 = this.getSecond(this.time5);
 
     console.log("time25 ", this.time25);
     console.log("time5 ", this.time5);
 
-    this.minuteRest = parseInt("" +this.timeStarted / 60);
-    this.secondRest = this.timeStarted % 60;
+    this.minuteRest = this.getMinutes(this.timeStarted);
+    this.secondRest = this.getSecond(this.timeStarted);
     console.log("time minute ", this.minuteRest);
     console.log("time second ", this.secondRest); 
   }
@@ -56,10 +64,10 @@ export class SubjectDisplayComponent implements OnInit {
         this.secondRest--;
       } else if(this.minuteRest > 0 && this.secondRest == 0) {
         this.minuteRest--;
-        let secondTotal = this.minuteRest * 60;
+        let secondTotal = this.getMinutes(this.minuteRest);
         secondTotal = + 59;
         //this.minuteRest = parseInt("" +secondTotal / 60);
-        this.secondRest = secondTotal % 60;  
+        this.secondRest = this.getSecond(secondTotal);  
         console.log("time  ", secondTotal, this.minuteRest, this.secondRest); 
        // this.minuteRest--;
       } else {
@@ -118,11 +126,11 @@ export class SubjectDisplayComponent implements OnInit {
 
   lastButNotLeast() {
 
-    if (this.timeLeft == this.time25) {
+    if (this.minute25 == this.minuteRest && this.second25 == this.secondRest) {
       this.colorBg = "warning";
     }
 
-    if (this.timeLeft == this.time5) {
+    if (this.minute5 == this.minuteRest && this.second5 == this.secondRest) {
       this.colorBg = "error";
     }
 
@@ -132,6 +140,15 @@ export class SubjectDisplayComponent implements OnInit {
 
   closeDial() {
     this.dialogRef.close("");
+  }
+
+
+  getMinutes(val:number){
+    return parseInt("" +val / 60);
+  }
+
+  getSecond(val:number){
+    return val % 60;
   }
   
 
