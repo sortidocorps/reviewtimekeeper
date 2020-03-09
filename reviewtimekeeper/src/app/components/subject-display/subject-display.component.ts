@@ -38,12 +38,12 @@ export class SubjectDisplayComponent implements OnInit {
 
     this.timeStarted = this.timeLeft;
 
-    let percent = 25;
+    let percent = 40;
     this.time25 = parseInt("" + Math.round(this.timeStarted * percent) / 100);
     this.minute25 = this.getMinutes(this.time25);
     this.second25 = this.getSecond(this.time25);
 
-    percent = 5;
+    percent = 25;
     this.time5 = parseInt("" + Math.round(this.timeStarted * percent) / 100);
     this.minute5 = this.getMinutes(this.time5);
     this.second5 = this.getSecond(this.time5);
@@ -53,8 +53,8 @@ export class SubjectDisplayComponent implements OnInit {
 
     this.minuteRest = this.getMinutes(this.timeStarted);
     this.secondRest = this.getSecond(this.timeStarted);
-    console.log("time minute ", this.minuteRest);
-    console.log("time second ", this.secondRest); 
+    /* console.log("time minute ", this.minuteRest);
+    console.log("time second ", this.secondRest);  */
   }
   
   startTimer() {
@@ -67,8 +67,7 @@ export class SubjectDisplayComponent implements OnInit {
         let secondTotal = this.getMinutes(this.minuteRest);
         secondTotal = + 59;
         //this.minuteRest = parseInt("" +secondTotal / 60);
-        this.secondRest = this.getSecond(secondTotal);  
-        console.log("time  ", secondTotal, this.minuteRest, this.secondRest); 
+        this.secondRest = this.getSecond(secondTotal);
        // this.minuteRest--;
       } else {
         clearInterval(this.interval);
@@ -80,24 +79,9 @@ export class SubjectDisplayComponent implements OnInit {
 
   }
 
-  /* startTimer() {
-    this.isPaused = false;
-    this.interval = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft--;
-      } else {
-        clearInterval(this.interval);
-        this.closerPopup();
-      }
-      this.lastButNotLeast();
-
-    }, 1000)
-
-  } */
-
+  
   closerPopup() {
-    if (this.timeLeft <= 0) {
-
+   
       // Close the popup 2 seconds after the end of the subject
       let timeToClosePopup = 2;
       let closePopupInterval = setInterval(() => {
@@ -111,7 +95,7 @@ export class SubjectDisplayComponent implements OnInit {
 
       }, 1000)
 
-    }
+    
   }
 
   pauseTimer() {

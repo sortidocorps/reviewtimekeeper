@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+@import 'scss/keeper-palette';
+
+/* ************************************************************ */
+/*                   Angular Material Variables                 */
+/* ************************************************************ */
+
+$keeper-primary: mat-palette($md-mcgpalette0, 500);
+$keeper-accent:  mat-palette($md-mcgpalette0);
+$keeper-warn:    mat-palette($md-mcgpalette0, 900);
+
+$keeper-theme: mat-light-theme($keeper-primary, $keeper-accent, $keeper-warn);
+
+@include angular-material-theme($keeper-theme);

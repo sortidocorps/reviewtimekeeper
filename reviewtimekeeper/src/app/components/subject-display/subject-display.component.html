@@ -10,6 +10,7 @@
 
             <div class="space-view">
                 <p (keydown.backspace)="pauseTimer()">Hit SPACE to PAUSE</p>
+                <button (keydown.backspace)="pauseTimer()" mat-raised-button (click)='pauseTimer()'>PAUSE</button>
                 <button mat-raised-button (click)='closeDial()'>CLOSE</button>
             </div>
         </div>

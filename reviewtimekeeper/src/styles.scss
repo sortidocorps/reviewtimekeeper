@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/theming";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import'themes/keeper-theme.scss';
 
 @include mat-core();
 
@@ -16,12 +17,21 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($my-app-theme);
-$theme: $my-app-theme;
+/* @include angular-material-theme($my-app-theme); */
+@include angular-material-theme($keeper-theme);
+/* $theme: $my-app-theme; */
+$theme: $keeper-theme;
 
-.default-theme {
+
+.default-theme {  
   @include angular-material-theme($my-app-theme);
   $theme: $my-app-theme;
+}
+
+// Our home theme.
+.keeper-theme {
+  @include angular-material-theme($keeper-theme);
+  $theme: $keeper-theme;
 }
 
 html,

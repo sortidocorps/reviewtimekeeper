@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+$my-app-primary: mat-palette($mat-blue);
+$my-app-accent:  mat-palette($mat-green, 300);
+
+// The warn palette is optional (defaults to red).
+$my-app-warn:    mat-palette($mat-deep-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
