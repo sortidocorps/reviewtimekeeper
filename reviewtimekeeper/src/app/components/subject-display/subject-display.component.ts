@@ -61,7 +61,7 @@ export class SubjectDisplayComponent implements OnInit {
     this.isPaused = false;
     this.interval = setInterval(() => {
       if (this.secondRest > 0) {
-        this.secondRest--;
+        this.secondRest--;        
       } else if(this.minuteRest > 0 && this.secondRest == 0) {
         this.minuteRest--;
         let secondTotal = this.getMinutes(this.minuteRest);

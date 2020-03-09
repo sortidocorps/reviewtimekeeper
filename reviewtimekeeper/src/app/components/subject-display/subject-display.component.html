@@ -6,7 +6,8 @@
 
             <p class="who-view">{{data.who}}</p>
 
-            <div class="lasttime-size">{{minuteRest}}:{{secondRest}}</div>
+            <div class="lasttime-size" *ngIf="secondRest >= 10">{{minuteRest}}:{{secondRest}}</div>
+            <div class="lasttime-size" *ngIf="secondRest < 10">{{minuteRest}}:0{{secondRest}}</div>
 
             <div class="space-view">
                 <p (keydown.backspace)="pauseTimer()">Hit SPACE to PAUSE</p>
