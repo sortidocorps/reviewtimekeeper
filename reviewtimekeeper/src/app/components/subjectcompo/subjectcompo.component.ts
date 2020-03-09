@@ -15,7 +15,8 @@ export class SubjectcompoComponent implements OnInit {
   public title: string = "";
   public who: string = "";
   public order: number = 0;
-  public timeLeft: number = 60;
+  public timeMinute: number;
+  public timeLeft: number;
   public timeStarted: number;
 
   public colorForms:string;
@@ -34,6 +35,8 @@ export class SubjectcompoComponent implements OnInit {
   }
 
   startTimer() {
+
+    this.timeLeft = this.timeMinute * 60;
 
     const dial = this.dialog.open(SubjectDisplayComponent, {
       position: {
