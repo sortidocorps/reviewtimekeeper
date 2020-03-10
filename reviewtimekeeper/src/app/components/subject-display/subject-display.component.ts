@@ -22,8 +22,8 @@ export class SubjectDisplayComponent implements OnInit {
   colorBg: string;
   isPaused: boolean;
 
-  secondRest:number;
-  minuteRest:number;
+  secondRest: number;
+  minuteRest: number;
 
   constructor(public dialogRef: MatDialogRef<SubjectcompoComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.timeLeft = this.data.timeLeft;
@@ -56,19 +56,20 @@ export class SubjectDisplayComponent implements OnInit {
     /* console.log("time minute ", this.minuteRest);
     console.log("time second ", this.secondRest);  */
   }
-  
+
   startTimer() {
     this.isPaused = false;
+
     this.interval = setInterval(() => {
       if (this.secondRest > 0) {
-        this.secondRest--;        
-      } else if(this.minuteRest > 0 && this.secondRest == 0) {
+        this.secondRest--;
+      } else if (this.minuteRest > 0 && this.secondRest == 0) {
         this.minuteRest--;
         let secondTotal = this.getMinutes(this.minuteRest);
         secondTotal = + 59;
         //this.minuteRest = parseInt("" +secondTotal / 60);
         this.secondRest = this.getSecond(secondTotal);
-       // this.minuteRest--;
+        // this.minuteRest--;
       } else {
         clearInterval(this.interval);
         this.closerPopup();
@@ -79,23 +80,25 @@ export class SubjectDisplayComponent implements OnInit {
 
   }
 
-  
+
   closerPopup() {
-   
-      // Close the popup 2 seconds after the end of the subject
-      let timeToClosePopup = 2;
-      let closePopupInterval = setInterval(() => {
-        if (timeToClosePopup > 0) {
-          timeToClosePopup--;
-        } else {
-          clearInterval(closePopupInterval);
-        }
+
+    // Close the popup 2 seconds after the end of the subject
+    let timeToClosePopup = 10;
+    let closePopupInterval = setInterval(() => {
+      this.colorBg = "endsubjectreview";
+
+      if (timeToClosePopup > 0) {
+        timeToClosePopup--;
+      } else {
+        clearInterval(closePopupInterval);
         // The time is realy finish.
         this.dialogRef.close("ok");
+      }
 
-      }, 1000)
+    }, 1000)
 
-    
+
   }
 
   pauseTimer() {
@@ -123,17 +126,23 @@ export class SubjectDisplayComponent implements OnInit {
 
 
   closeDial() {
-    this.dialogRef.close("");
+    
+    if (this.minuteRest != 0) {
+      this.dialogRef.close(this.minuteRest);
+    } else {
+      this.dialogRef.close("0");
+    }
+    
   }
 
 
-  getMinutes(val:number){
-    return parseInt("" +val / 60);
+  getMinutes(val: number) {
+    return parseInt("" + val / 60);
   }
 
-  getSecond(val:number){
+  getSecond(val: number) {
     return val % 60;
   }
-  
+
 
 }

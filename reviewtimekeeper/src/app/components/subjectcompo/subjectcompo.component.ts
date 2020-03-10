@@ -20,6 +20,7 @@ export class SubjectcompoComponent implements OnInit {
   public timeStarted: number;
 
   public colorForms:string;
+  theRestTimeNotCusome:string;
 
   interval;
 
@@ -56,9 +57,11 @@ export class SubjectcompoComponent implements OnInit {
     });
 
     dial.afterClosed().subscribe(result => {
+      console.log("result", result);
       if(result == "ok") {
         this.colorForms = "good";
       } else {
+        this.theRestTimeNotCusome = result;
         this.colorForms = "warning";
       }
     });
