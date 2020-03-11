@@ -67,18 +67,37 @@ export class SubjectDisplayComponent implements OnInit {
         this.minuteRest--;
         let secondTotal = this.getMinutes(this.minuteRest);
         secondTotal = + 59;
-        //this.minuteRest = parseInt("" +secondTotal / 60);
         this.secondRest = this.getSecond(secondTotal);
-        // this.minuteRest--;
       } else {
         clearInterval(this.interval);
-        this.closerPopup();
+        //this.closerPopup();
+        this.startReverseTimer();
       }
       this.lastButNotLeast();
 
     }, 1000)
 
   }
+
+  startReverseTimer() {
+    this.isPaused = false;
+    this.colorBg = "endsubjectreview";
+    this.interval = setInterval(() => {
+      if (this.secondRest < 59) {
+        this.secondRest++;
+      } else if (this.minuteRest >= 0 && this.secondRest == 59) {
+        this.minuteRest++;
+        let secondTotal = this.getMinutes(this.minuteRest);
+        secondTotal = 0;
+        this.secondRest = this.getSecond(secondTotal);
+      } else {
+        clearInterval(this.interval);
+      }
+
+    }, 1000)
+
+  }
+
 
 
   closerPopup() {
