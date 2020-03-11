@@ -1,12 +1,18 @@
 export class TimerState {
-    
+
     private _play: boolean = true;
     private _stop: boolean = false;
     private _backward: boolean = false;
 
-    get stop(): boolean { return this._stop; }
-    get backward(): boolean { return this._backward; }
-    get play(): boolean { return this._play; }
+    get stop(): boolean {
+        return this._stop;
+    }
+    get backward(): boolean {
+        return this._backward;
+    }
+    get play(): boolean {
+        return this._play;
+    }
 
     setPlay() {
         this._stop = true;

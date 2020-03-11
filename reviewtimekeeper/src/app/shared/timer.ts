@@ -5,9 +5,13 @@ export class Timer {
     private _totalSecondes: number = 0;
     private _timer;
 
-    get minutes(): number { return this._minutes; }
+    get minutes(): number { 
+      return this._minutes; 
+    }
 
-    get secondes(): number { return this.seconde; }
+    get secondes(): number {
+       return this.seconde; 
+    }
 
     start() {
       this._timer = setInterval(() => {
