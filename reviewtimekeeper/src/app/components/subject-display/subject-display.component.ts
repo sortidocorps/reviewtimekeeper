@@ -21,6 +21,7 @@ export class SubjectDisplayComponent implements OnInit {
   timeLeft: number;
   colorBg: string;
   isPaused: boolean;
+  isReverseTimer:boolean;
 
   secondRest: number;
   minuteRest: number;
@@ -35,6 +36,7 @@ export class SubjectDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.startTimer();
     this.colorBg = "good";
+    this.isReverseTimer = false;
 
     this.timeStarted = this.timeLeft;
 
@@ -80,6 +82,7 @@ export class SubjectDisplayComponent implements OnInit {
   }
 
   startReverseTimer() {
+    this.isReverseTimer = true;
     this.isPaused = false;
     this.colorBg = "endsubjectreview";
     this.interval = setInterval(() => {
@@ -145,7 +148,7 @@ export class SubjectDisplayComponent implements OnInit {
 
 
   closeDial() {
-    
+    this.isReverseTimer = false;
     if (this.minuteRest != 0) {
       this.dialogRef.close(this.minuteRest);
     } else {
