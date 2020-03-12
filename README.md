@@ -16,7 +16,7 @@ When your are ok, start the subject
 The time keeper is running
 ![alt text](img/time.JPG "Set subjects")
 
-At 40% of your time subject set, the color change:
+At 40% of your time subject set, the color change: 
 ![alt text](img/time2.JPG "Orange")
 
 At 25% of your time subject set, the color change at red,
