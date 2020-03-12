@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubjectcompoComponent } from '../subjectcompo/subjectcompo.component';
 import { isGeneratedFile } from '@angular/compiler/src/aot/util';
+import { ReviewSubject } from 'src/app/entities/reviewSubject';
 
 @Component({
   selector: 'app-subject-display',
@@ -26,8 +27,9 @@ export class SubjectDisplayComponent implements OnInit {
   secondRest: number;
   minuteRest: number;
 
-  constructor(public dialogRef: MatDialogRef<SubjectcompoComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.timeLeft = this.data.timeLeft;
+  constructor(public dialogRef: MatDialogRef<SubjectcompoComponent>, @Inject(MAT_DIALOG_DATA) public data: ReviewSubject) {
+    this.timeLeft = this.data.time * 60;
+    console.log("constructor", this.timeLeft);
     this.isPaused = false;
   }
 

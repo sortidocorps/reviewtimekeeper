@@ -4,14 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { SubjectDisplayComponent } from '../subject-display/subject-display.component';
 import { MatTableDataSource } from '@angular/material/table';
 
-const aSubject = new ReviewSubject();
-aSubject.time = 100;
-aSubject.title = 'Hello World';
-aSubject.who = 'Toto';
-
-const SUBJECTS = [
-  aSubject
-];
 
 @Component({
   selector: 'app-subjectcompo',
@@ -22,6 +14,7 @@ export class SubjectcompoComponent implements OnInit {
 
   public subject: ReviewSubject[] = [];
   dataSource: MatTableDataSource<ReviewSubject>;
+  reviewSubject: ReviewSubject = new ReviewSubject();
 
   displayColumns: string[] = [
     'title',
@@ -31,15 +24,10 @@ export class SubjectcompoComponent implements OnInit {
     'delete'
   ];
 
-  public title: string = "";
-  public who: string = "";
-  public order: number = 0;
   public timeMinute: number;
-  public timeLeft: number;
-  public timeStarted: number;
 
-  public colorForms:string;
-  theRestTimeNotCusome:string;
+  public colorForms: string;
+  theRestTimeNotCusome: string;
 
 
   interval;
@@ -55,14 +43,19 @@ export class SubjectcompoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subject.push(aSubject);
-    console.log(this.subject);
+    // creation
+    this.reviewSubject = {
+      order: 1,
+      title: "",
+      who:"",
+      time:0
+    };
+    this.subject.push(this.reviewSubject);
+
     this.dataSource = new MatTableDataSource(this.subject);
   }
 
   startTimer(row: ReviewSubject) {
-
-    this.timeLeft = this.timeMinute * 60;
 
     const dial = this.dialog.open(SubjectDisplayComponent, {
       position: {
@@ -78,7 +71,7 @@ export class SubjectcompoComponent implements OnInit {
     });
     dial.afterClosed().subscribe(result => {
       console.log("result", result);
-      if(result == "ok") {
+      if (result == "ok") {
 
         this.colorForms = "good";
       } else {
@@ -90,9 +83,9 @@ export class SubjectcompoComponent implements OnInit {
 
   addSubject() {
     let newSubject = new ReviewSubject();
-    newSubject.title = '';
-    newSubject.who = '';
-    newSubject.time = 0;
+    // newSubject.title = '';
+    // newSubject.who = '';
+    // newSubject.time = 0;
     this.subject.push(newSubject);
     this.dataSource.data = this.subject;
   }

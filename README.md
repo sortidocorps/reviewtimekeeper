@@ -16,13 +16,13 @@ When your are ok, start the subject
 The time keeper is running
 ![alt text](img/time.JPG "Set subjects")
 
-At 25% of your time subject set, the color change:
+At 40% of your time subject set, the color change:
 ![alt text](img/time2.JPG "Orange")
 
 At 25% of your time subject set, the color change at red,
 
-At the end, the tools wait 2 seconds and go back to the subjects.
-
+At the end, the tools run a chronometre to ewplain at the speaker is late.
+![alt text](img/over.JPG "Orange")
 
 ### Contributors
 @Florian935

@@ -2,9 +2,9 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
-            <td td mat-cell *matCellDef="let row">
+            <td td mat-cell *matCellDef="let row" [ngClass]="colorForms">
                 <mat-form-field>
-                    <input matInput type="text" name="title" placeholder="title">
+                    <input matInput type="text" name="title" placeholder="title" [(ngModel)]="row.title">
                 </mat-form-field>
             </td>
         </ng-container>
@@ -12,7 +12,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Who</th>
             <td td mat-cell *matCellDef="let row">
                 <mat-form-field>
-                    <input matInput type="text" name="who" placeholder="who">
+                    <input matInput type="text" name="who" placeholder="speaker" [(ngModel)]="row.who">
                 </mat-form-field>
             </td>
         </ng-container>
@@ -20,7 +20,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
             <td td mat-cell *matCellDef="let row">
                 <mat-form-field>
-                    <input matInput type="text" name="timeLeft" placeholder="time">
+                    <input matInput type="text" name="timeLeft" placeholder="time" [(ngModel)]="row.time">
                 </mat-form-field>
             </td>
         </ng-container>
@@ -47,46 +47,4 @@
         </tr>
         <tr mat-row *matRowDef="let data; columns: displayColumns"></tr>
 </table>
-=======
-<form [ngClass]="colorForms" *ngIf="!isDelete();">
-
-    <!-- ORDER -->
-    <mat-form-field class="rev-full-width">
-        <mat-label>Order</mat-label>
-        <input matInput type="text" [(ngModel)]="order" name="order">
-    </mat-form-field>
-
-    <!-- TITLE -->
-    <mat-form-field class="rev-full-width">
-        <mat-label>Title</mat-label>
-        <input matInput type="text" [(ngModel)]="title" name="title">
-    </mat-form-field>
-
-    <!-- WHO -->
-    <mat-form-field class="rev-full-width">
-        <mat-label>Who</mat-label>
-        <input matInput type="text" [(ngModel)]="who" name="who">
-    </mat-form-field>
-
-    <!-- TIME -->
-    <mat-form-field class="rev-full-width">
-        <mat-label>Time (in minute)</mat-label>
-        <input matInput type="text" [(ngModel)]="timeMinute" name="timeLeft">
-    </mat-form-field>
-
-    <!-- BUTTONS -->
-    <button mat-raised-button (click)='startTimer()'>Start</button>
-
-    <!-- TIMELEFT -->
-    <button mat-icon-button color="warn" (click)="deleteItem()" matTooltip="Delete this flow line">
-        <mat-icon aria-label="Delete">delete_forever</mat-icon>
-    </button>
-
-    <!-- TEST -->
-    <mat-form-field class="rev-full-width">
-        <mat-label>Time not use</mat-label>
-        <input matInput type="text" [(ngModel)]="theRestTimeNotCusome" name="timeLeft">
-    </mat-form-field>
-
-</form>
 
