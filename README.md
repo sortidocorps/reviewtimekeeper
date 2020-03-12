@@ -22,7 +22,7 @@ At 40% of your time subject set, the color change:
 At 25% of your time subject set, the color change at red,
 
 At the end, the tools run a chronometre to ewplain at the speaker is late.
-![alt text](img/over.JPG "Orange")
+![alt text](img/over.JPG "Rouge")
 
 ### Contributors
 @Florian935
