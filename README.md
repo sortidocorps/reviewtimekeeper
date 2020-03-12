@@ -9,7 +9,7 @@ https://sortidocorps.github.io/reviewtimekeeper.github.io/
 ## How
 
 Add your review subjects here: 
-![alt text](img/welcome.JPG "Set subjects")
+![alt text](img/welcomes.JPG "Set subjects")
 
 When your are ok, start the subject
 
