@@ -1,7 +1,9 @@
 # reviewtimekeeper
-Mange the time on all the review and by subjects
+Manage the time on all the review and by subjects
 
-# The tools is under development, it's iterate and improuve time after time, if you want to collaborate don't hesitate.
+https://sortidocorps.github.io/reviewtimekeeper.github.io/
+
+## The tools is under development, it's iterate and improuve time after time, if you want to collaborate don't hesitate.
 
 
 ## How

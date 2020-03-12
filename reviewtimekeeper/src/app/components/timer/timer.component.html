@@ -1,23 +1,9 @@
-<!--  <div class="container">
-    <div class="text-center">
-        <hr>
-        <h1>
-            <span class="label label-primary">{{timer.minutes}}</span> minutes
-            <span class="label label-primary">{{timer.secondes}}</span> secondes
-        </h1>
-        <br>
-        <p>
-            <button class="btn btn-danger btn-lg" *ngIf="state.backward" (click)="backward()">Effacer</button>
-            <button class="btn btn-danger btn-lg" *ngIf="state.stop" (click)="stop()">Arrêter</button>
-            <button class="btn btn-primary btn-lg" *ngIf="state.play" (click)="play()">{{btnPlay}}</button>
-        </p>
-    </div> -->
 
 <mat-card>
 
         <mat-card-content>
-
-            <h1>
+            <!-- *ngIf="timer.seconde >=10"-->
+            <h1 >
                 <span>{{timer.minutes}}</span> :
                 <span>{{timer.secondes}}</span>
             </h1>

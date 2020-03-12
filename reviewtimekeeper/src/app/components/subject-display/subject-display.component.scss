@@ -1,6 +1,6 @@
 
 .error {
-    background: rgba(253, 13, 33, 0.8);
+    background: rgba(247, 5, 25, 0.8);
     text-align: center;
     height: 100%;
 }
@@ -28,14 +28,14 @@
 
 .title-view {
     color: white;
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: bold;
     text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
 }
 
 .who-view {
     color: white;
-    font-size: xx-large;
+    font-size: 43px;
     font-weight: bold;
     text-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
 }
@@ -67,3 +67,24 @@
     height: 100%;
 }
 
+/* Animation */
+@keyframes wheelHueColor {
+    from, to { background: hsl(324, 70%, 45%); }
+    10%      { background: hsl(360, 65%, 45%); }
+    20%      { background: hsl( 36, 80%, 45%); }
+    30%      { background: rgb(252, 248, 2); }
+    40%      { background: hsl(59, 79%, 60%); }
+    50%      { background: hsl(34, 98%, 53%); }
+    60%      { background: hsl(34, 91%, 50%); }
+    70%      { background: hsl(7, 100%, 63%); }
+    80%      { background: hsl(0, 99%, 49%); }
+    90%      { background: hsl(0, 86%, 52%); }
+}
+
+.endsubjectreview {
+    text-align: center;
+    height: 100%;
+    /*hsl = Teinte (H), la Saturation (S) et la Lumière (L)*/
+    background: hsl(324, 70%, 45%);
+    animation: wheelHueColor 1s infinite;
+}
