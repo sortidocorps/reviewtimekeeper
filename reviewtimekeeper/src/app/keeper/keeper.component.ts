@@ -19,8 +19,5 @@ export class KeeperComponent implements OnInit {
   addSubject() {
     let childComponent = this.resolver.resolveComponentFactory(SubjectcompoComponent);
     this.componentRef = this.target.createComponent(childComponent);
-    
   }
-
- 
 }

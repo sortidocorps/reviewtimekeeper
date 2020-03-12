@@ -1,3 +1,53 @@
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+            <td td mat-cell *matCellDef="let row">
+                <mat-form-field>
+                    <input matInput type="text" name="title" placeholder="title">
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="who">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Who</th>
+            <td td mat-cell *matCellDef="let row">
+                <mat-form-field>
+                    <input matInput type="text" name="who" placeholder="who">
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td td mat-cell *matCellDef="let row">
+                <mat-form-field>
+                    <input matInput type="text" name="timeLeft" placeholder="time">
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="create">
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-icon-button>
+                    <mat-icon (click)="addSubject()">add</mat-icon>
+                </button>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-raised-button (click)="startTimer(row)">Start</button>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="warn">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true">
+        </tr>
+        <tr mat-row *matRowDef="let data; columns: displayColumns"></tr>
+</table>
+=======
 <form [ngClass]="colorForms" *ngIf="!isDelete();">
 
     <!-- ORDER -->
@@ -39,3 +89,4 @@
     </mat-form-field>
 
 </form>
+
