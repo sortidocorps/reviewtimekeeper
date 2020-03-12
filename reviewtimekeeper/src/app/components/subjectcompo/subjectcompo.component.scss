@@ -22,3 +22,16 @@
 /* .full-screen-modal .mat-dialog-container {
   max-width: none;
 } */
+
+table {
+  width: 100%;
+}
+
+::ng-deep.mat-sort-header-container {
+  padding-left: 17px;
+  justify-content: center;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
