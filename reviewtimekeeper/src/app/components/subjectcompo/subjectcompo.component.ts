@@ -32,7 +32,6 @@ export class SubjectcompoComponent implements OnInit {
 
   interval;
 
-  isDel: boolean = false;
   istOk: boolean = false;
   time25: number;
   time5: number;
@@ -90,13 +89,9 @@ export class SubjectcompoComponent implements OnInit {
     this.dataSource.data = this.subject;
   }
 
-  deleteItem() {
-
-    this.isDel = true;
-
+  deleteItem(i:number) {
+    this.subject.splice(i, 1);
+    this.dataSource.data = this.subject;
   }
 
-  isDelete() {
-    return this.isDel;
-  }
 }
