@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubjectcompoComponent } from '../subjectcompo/subjectcompo.component';
 import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import { ReviewSubject } from 'src/app/entities/reviewSubject';
+import { Timing } from 'src/app/entities/timing';
 
 @Component({
   selector: 'app-subject-display',
@@ -23,6 +24,7 @@ export class SubjectDisplayComponent implements OnInit {
   colorBg: string;
   isPaused: boolean;
   isReverseTimer:boolean;
+  timing:Timing;
 
   secondRest: number;
   minuteRest: number;
@@ -40,6 +42,7 @@ export class SubjectDisplayComponent implements OnInit {
     this.colorBg = "good";
     this.isReverseTimer = false;
 
+    this.timing = new Timing();
     this.timeStarted = this.timeLeft;
 
     let percent = 40;
@@ -150,11 +153,17 @@ export class SubjectDisplayComponent implements OnInit {
 
 
   closeDial() {
+    this.timing  = {
+      minuteRest: this.minuteRest,
+      isReverse: this.isReverseTimer
+    };
+    this.data.timing = this.timing;
     this.isReverseTimer = false;
+
     if (this.minuteRest != 0) {
-      this.dialogRef.close(this.minuteRest);
+      this.dialogRef.close(this.data);
     } else {
-      this.dialogRef.close("0");
+      this.dialogRef.close(this.data);
     }
     
   }

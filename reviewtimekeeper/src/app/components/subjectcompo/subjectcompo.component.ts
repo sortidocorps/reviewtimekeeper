@@ -3,6 +3,7 @@ import { Component, OnInit, ComponentRef, ViewContainerRef } from '@angular/core
 import { MatDialog } from '@angular/material/dialog';
 import { SubjectDisplayComponent } from '../subject-display/subject-display.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { Timing } from 'src/app/entities/timing';
 
 
 @Component({
@@ -27,14 +28,10 @@ export class SubjectcompoComponent implements OnInit {
   public timeMinute: number;
 
   public colorForms: string;
-  theRestTimeNotCusome: string;
+  theRestTime: Timing;
 
 
-  interval;
-
-  istOk: boolean = false;
-  time25: number;
-  time5: number;
+  istOk: boolean;
 
   constructor(
     public dialog: MatDialog
@@ -42,12 +39,16 @@ export class SubjectcompoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.istOk = false;
     // creation
     this.reviewSubject = {
       order: 1,
       title: "",
       who:"",
-      time:0
+      time:0,
+      color:"",
+      timing: new Timing
     };
     this.subject.push(this.reviewSubject);
 
@@ -55,6 +56,8 @@ export class SubjectcompoComponent implements OnInit {
   }
 
   startTimer(row: ReviewSubject) {
+
+    let index = this.subject.indexOf(row);
 
     const dial = this.dialog.open(SubjectDisplayComponent, {
       position: {
@@ -66,18 +69,21 @@ export class SubjectcompoComponent implements OnInit {
       height: '100%',
       width: '100%',
       panelClass: 'myapp-no-padding-dialog',
-      data: this.subject[this.subject.indexOf(row)]
+      data: this.subject[index]
     });
     dial.afterClosed().subscribe(result => {
       console.log("result", result);
-      if (result == "ok") {
-
-        this.colorForms = "good";
+      if (!result.timing.isReverse) {
+        row.color = "good";
+        //this.theRestTimeNotCusome = result.minuteRest;
       } else {
-        this.theRestTimeNotCusome = result;
-        this.colorForms = "warning";
+        //this.theRestTimeOverCusome = result.minuteRest;
+        row.color = "warning";
+        //this.colorForms = "warning";
       }
     });
+
+    
   }
 
   addSubject() {
