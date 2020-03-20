@@ -20,7 +20,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
             <td td mat-cell *matCellDef="let row">
                 <mat-form-field>
-                    <input matInput type="text" name="timeLeft" placeholder="time" [(ngModel)]="row.time">
+                    <input matInput type="text" name="timeLeft" placeholder="time" [(ngModel)]="row.time" (change)="displayTotalTime()">
                 </mat-form-field>
             </td>
         </ng-container>
@@ -36,11 +36,13 @@
         </ng-container>
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef>
+                Total : {{totalTime}} min | Rest : {{overTime}} min
             </th>
             <td mat-cell *matCellDef="let row; let i=index;">
                 <button mat-icon-button color="warn" (click)="deleteItem(i)" matTooltip="Delete this subject line">
                     <mat-icon aria-label="Delete">delete_forever</mat-icon>
                   </button>
+                  {{displayMinutesRest(row.timing)}}
                   <!-- <button mat-icon-button color="primary" matTooltip="Subject done" *ngIf="istOk">
                     <mat-icon aria-label="Done">done_outline</mat-icon>
                   </button> -->

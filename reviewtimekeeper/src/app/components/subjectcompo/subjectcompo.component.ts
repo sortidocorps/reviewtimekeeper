@@ -17,6 +17,9 @@ export class SubjectcompoComponent implements OnInit {
   dataSource: MatTableDataSource<ReviewSubject>;
   reviewSubject: ReviewSubject = new ReviewSubject();
 
+  totalTime: number;
+  overTime: number;
+
   displayColumns: string[] = [
     'title',
     'who',
@@ -40,14 +43,16 @@ export class SubjectcompoComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.totalTime = 0;
+    this.overTime = 0;
     this.istOk = false;
     // creation
     this.reviewSubject = {
       order: 1,
       title: "",
-      who:"",
-      time:0,
-      color:"",
+      who: "",
+      time: 0,
+      color: "",
       timing: new Timing
     };
     this.subject.push(this.reviewSubject);
@@ -75,15 +80,13 @@ export class SubjectcompoComponent implements OnInit {
       console.log("result", result);
       if (!result.timing.isReverse) {
         row.color = "good";
-        //this.theRestTimeNotCusome = result.minuteRest;
       } else {
-        //this.theRestTimeOverCusome = result.minuteRest;
         row.color = "warning";
-        //this.colorForms = "warning";
       }
-    });
 
-    
+      // to update time beging
+      this.displayOverTime(result);
+    });
   }
 
   addSubject() {
@@ -95,9 +98,40 @@ export class SubjectcompoComponent implements OnInit {
     this.dataSource.data = this.subject;
   }
 
-  deleteItem(i:number) {
+  deleteItem(i: number) {
     this.subject.splice(i, 1);
     this.dataSource.data = this.subject;
+  }
+
+
+  displayMinutesRest(tim: Timing) {
+    if (tim != null && tim.minuteRest > 0) {
+      return tim.isReverse ? "-" + tim.minuteRest : "+" + tim.minuteRest;
+    }
+
+    return "";
+  }
+
+  displayTotalTime() {
+    this.totalTime = 0;
+    this.subject.forEach(element => {
+      // Why the + with number doesn't work dude, I don't know it, but parseInt string works !!!
+      this.totalTime = parseInt(this.totalTime.toString()) + parseInt(element.time.toString());
+    });
+
+    //this.overTime = this.totalTime;
+
+  }
+
+  displayOverTime(element: ReviewSubject) {
+    
+    if (element.timing != null && element.timing.minuteRest > 0) {
+      if (element.timing.isReverse) {
+        this.overTime = parseInt(this.totalTime.toString()) - parseInt(element.timing.minuteRest.toString());
+      } else {
+        this.overTime = parseInt(this.totalTime.toString()) + parseInt(element.timing.minuteRest.toString());
+      }
+    }
   }
 
 }
