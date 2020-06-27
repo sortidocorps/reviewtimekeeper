@@ -3,6 +3,13 @@
 //     Every toolbar row uses a flexbox row layout. */
 //  flex: 1 1 auto;
 //}
+
+.github-icon {
+  background: url('/assets/github.svg');
+  color:white;
+}
+
+
 a {
     text-decoration: none;
     cursor: pointer;
