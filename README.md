@@ -1,7 +1,8 @@
 # reviewtimekeeper
 Manage the time on all the review and by subjects
 
-https://sortidocorps.github.io/reviewtimekeeper.github.io/
+Use the app here : 
+[https://reviewtimekeeper.herokuapp.com/](https://reviewtimekeeper.herokuapp.com/)
 
 ## The tools is under development, it's iterate and improuve time after time, if you want to collaborate don't hesitate.
 
